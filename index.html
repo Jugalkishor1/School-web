@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Malwanchal Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #3498DB;
+            --accent-color: #2ECC71;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
+                        url('../images/8.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .nav-link {
+            color: white !important;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-custom {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-element {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .card-hover:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        .section-header {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .academics-card {
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .academics-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .admissions-step {
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        #contactForm {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .gallery-image {
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+
+        .timeline-item {
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        #eventCalendar .card {
+            transition: all 0.3s ease;
+        }
+
+        #eventCalendar .card:hover {
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .achievements-counter {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .contact-info {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-form {
+            flex: 2;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .contact-info h2 {
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: black;
+            font-size: 20px;
+        }
+        
+        .contact-info p{
+            color: black;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: black;
+            margin-right: 15px;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #45a049;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../images/10.png" width="50" height="50" alt="School Logo">
+            </a>
+            <span style="color: white;"> New Malwanchal Academy </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#academics">Academics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#admissions">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-section text-white">
+        <div class="container hero-content">
+            <h1 class="display-3 mb-4 hero-title floating-element">Empowering Futures, Inspiring Minds</h1>
+            <p class="lead mb-5 hero-subtitle">
+                At New Malwanchal Academy, we blend academic excellence with holistic development, 
+                creating a transformative learning environment that prepares students for global challenges.
+            </p>
+            <div class="cta-buttons">
+                <a href="#admissions" class="btn btn-success btn-custom">Apply Now</a>
+                <a href="#about" class="btn btn-outline-light btn-custom">Learn More</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-header">Our Features </h2>
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card card-hover p-4">
+                        <i class="fas fa-graduation-cap feature-icon"></i>
+                        <h3>Quality Education</h3>
+                        <p>Comprehensive curriculum designed to nurture holistic development</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card card-hover p-4">
+                        <i class="fas fa-chalkboard-teacher feature-icon"></i>
+                        <h3>Expert Faculty</h3>
+                        <p>Experienced and dedicated teachers committed to student success</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card card-hover p-4">
+                        <i class="fas fa-book-open feature-icon"></i>
+                        <h3>Modern Learning</h3>
+                        <p>Technology-integrated classrooms with interactive learning methods</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="mb-4">About New Malwanchal Academy</h2>
+                    <p>Established with a vision to transform education, New Malwanchal Academy is more than just a school. We are a community dedicated to nurturing young minds, fostering creativity, and preparing students for a dynamic global future.</p>
+                    <p>Our approach combines traditional values with modern educational techniques, ensuring comprehensive development of each student.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="../images/3.jpg" class="img-fluid rounded shadow" alt="School Campus">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section id="academics" class="py-5">
+        <div class="container">
+            <h2 class="section-header">Our Academic Programs</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card academics-card p-4 text-center">
+                        <i class="fas fa-microscope fa-3x mb-3 text-primary"></i>
+                        <h4>Science Stream</h4>
+                        <p>Comprehensive science education with state-of-the-art laboratories and expert faculty.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card academics-card p-4 text-center">
+                        <i class="fas fa-chart-line fa-3x mb-3 text-primary"></i>
+                        <h4>Commerce Stream</h4>
+                        <p>Advanced commerce curriculum preparing students for future business challenges.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card academics-card p-4 text-center">
+                        <i class="fas fa-book-reader fa-3x mb-3 text-primary"></i>
+                        <h4>Humanities</h4>
+                        <p>Holistic approach to humanities with focus on critical thinking and social understanding.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Section -->
+    <section id="admissions" class="bg-light py-5">
+        <div class="container">
+            <h2 class="section-header">Admission Process</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="admissions-step mb-3">
+                        <h5>1. Application Submission</h5>
+                        <p>Complete the online application form with all required documents.</p>
+                    </div>
+                    <div class="admissions-step mb-3">
+                        <h5>2. Entrance Examination</h5>
+                        <p>Appear for our comprehensive entrance test designed to assess academic potential.</p>
+                    </div>
+                    <div class="admissions-step mb-3">
+                        <h5>3. Personal Interview</h5>
+                        <p>Shortlisted candidates will be invited for a personal interaction with our admission committee.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="../images/2.jpg" class="img-fluid rounded shadow" alt="Admission Process">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <h2 class="section-header">Campus Gallery</h2>
+            <div class="row" id="schoolGallery">
+                <!-- Gallery images will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- School History Timeline -->
+    <section id="history" class="bg-light py-5">
+        <div class="container">
+            <h2 class="section-header">Our Journey</h2>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="timeline-item">
+                        <h4>2005 - Foundation</h4>
+                        <p>New Malwanchal Academy was established with a vision to provide quality education.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2010 - First Milestone</h4>
+                        <p>Achieved 100% board examination success and recognized as a leading educational institution.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2015 - Expansion</h4>
+                        <p>Expanded infrastructure with state-of-the-art laboratories and digital classrooms.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2020 - Digital Transformation</h4>
+                        <p>Implemented comprehensive digital learning platforms and online education tools.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section id="eventCalendar" class="py-5">
+        <div class="container">
+            <h2 class="section-header">Upcoming Events</h2>
+            <div class="row" id="eventList">
+                <!-- Events will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- School Achievements -->
+    <section id="achievements" class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="section-header">Our Achievements</h2>
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="achievements-counter" id="studentsCounter">0</div>
+                    <p>Total Students</p>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="achievements-counter" id="facultyCounter">0</div>
+                    <p>Faculty Members</p>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="achievements-counter" id="awardCounter">0</div>
+                    <p>Academic Awards</p>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="achievements-counter" id="successRateCounter">0</div>
+                    <p>Board Success Rate (%)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <div class="container my-form" id="contact">
+        <h1>Contact Us</h1>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    123 Tech Street, Innovation City
+                </p>
+                <p>
+                    <i class="fas fa-phone"></i>
+                    (555) 123-4567
+                </p>
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    contact@company.com
+                </p>
+                <div class="social-links">
+                    <a href="#" class="fab fa-facebook"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="tel" placeholder="Your Phone Number">
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 New Malwanchal Academy. All Rights Reserved.</p>
+            <!-- <div class="social-links mt-3">
+                <a href="#" class="text-white mx-2"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+            </div> -->
+        </div>
+    </footer>
+
+    <!-- Bootstrap & Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        // Dynamic Gallery Generation
+        const galleryImages = [
+            '../images/1.jpg',
+            '../images/2.jpg',
+            '../images/3.jpg',
+            '../images/4.jpg',
+            '../images/8.jpg',
+            '../images/7.jpg'
+        ];
+
+        const galleryContainer = document.getElementById('schoolGallery');
+        galleryImages.forEach(image => {
+            const col = document.createElement('div');
+            col.className = 'col-md-4 mb-4';
+            col.innerHTML = `
+                <img src="${image}" class="img-fluid rounded gallery-image" alt="School Gallery">
+            `;
+            galleryContainer.appendChild(col);
+        });
+
+        // Dynamic Events Generation
+        const events = [
+            { title: 'Annual Science Exhibition', date: '15 July 2024', description: 'Students showcase innovative scientific projects.' },
+            { title: 'Sports Day', date: '22 August 2024', description: 'Inter-house sports competitions and athletic events.' },
+            { title: 'Cultural Fest', date: '5 September 2024', description: 'Celebrating creativity through music, dance, and drama.' }
+        ];
+
+        const eventContainer = document.getElementById('eventList');
+        events.forEach(event => {
+            const col = document.createElement('div');
+            col.className = 'col-md-4 mb-4';
+            col.innerHTML = `
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${event.title}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">${event.date}</h6>
+                        <p class="card-text">${event.description}</p>
+                    </div>
+                </div>
+            `;
+            eventContainer.appendChild(col);
+        });
+
+        // Achievements Counter Animation
+        function animateCounter(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Initialize counters
+        animateCounter(document.getElementById('studentsCounter'), 0, 1200, 2000);
+        animateCounter(document.getElementById('facultyCounter'), 0, 85, 2000);
+        animateCounter(document.getElementById('awardCounter'), 0, 42, 2000);
+        animateCounter(document.getElementById('successRateCounter'), 0, 98, 2000);
+    </script>
+    <!-- <script>
+        // Basic form validation and submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script> -->
+</body>
+</html>

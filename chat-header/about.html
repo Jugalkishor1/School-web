@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - New Malwanchal Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #3498DB;
+            --accent-color: #2ECC71;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* About Us Section */
+        .about-section {
+            background: linear-gradient(135deg, #f9f9f9 50%, #eef2f3 100%);
+            padding: 70px 20px;
+            position: relative;
+        }
+
+        .about-section h2 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .about-section .content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .about-text {
+            flex: 1;
+            animation: slideInLeft 1.5s ease;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .about-text .btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 20px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .about-text .btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        .about-image {
+            flex: 1;
+            animation: slideInRight 1.5s ease;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .tooltip-text {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            display: none;
+            text-align: center;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- About Us Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="content">
+                <div class="about-text">
+                    <p>Welcome to <strong>New Malwanchal Academy</strong>, where education meets excellence. Established with a vision to transform the learning experience, our academy stands as a beacon of knowledge, innovation, and holistic development.</p>
+                    <p>Our mission is to nurture young minds, fostering creativity, critical thinking, and a lifelong love for learning. By blending traditional values with modern educational practices, we prepare our students to excel in a dynamic global environment.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="about-image" id="image-container">
+                    <img src="../images/3.jpg" alt="School Campus">
+                    <div class="tooltip-text" id="tooltip">Explore our vibrant campus!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript for Tooltip Effect
+        const imageContainer = document.getElementById('image-container');
+        const tooltip = document.getElementById('tooltip');
+
+        imageContainer.addEventListener('mouseenter', () => {
+            tooltip.style.display = 'block';
+        });
+
+        imageContainer.addEventListener('mouseleave', () => {
+            tooltip.style.display = 'none';
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
